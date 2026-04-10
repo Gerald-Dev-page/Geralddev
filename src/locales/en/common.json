@@ -1,0 +1,139 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Gerald.Dev",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "title": "Building <0>experiences</0><1/>that make a <2>difference</2>.",
+    "subtitle": "Professional Web & App Development Tailored for You.",
+    "badge": "Available for projects",
+    "cta": {
+      "contact": "Let's talk",
+      "services": "View services"
+    }
+  },
+  "about": {
+    "title": "About <1>Gerald</1><3>.Dev</3>",
+    "p1": "At Gerald.Dev, we love turning ideas into digital solutions that truly work. We create custom web and mobile apps, designed to boost your business—without you having to deal with technical headaches.",
+    "p2": "We work closely with entrepreneurs and small businesses because we understand what you need and know how to take it to the next level: products that work, grow, and deliver results.",
+    "p3": "We keep you in the loop with clear, friendly communication—no nonsense. Here, you're not just a number: your project matters to us and we'll be there to support you at every step.",
+    "p4": "Because if you succeed, so do we."
+  },
+  "services": {
+    "title": "Our <1>Services</1>",
+    "subtitle": "What we can do for your business",
+    "badge": "What we offer",
+    "list": [
+      {
+        "title": "Full Stack Web Development",
+        "desc": "Professional websites, from custom builds to WordPress. Responsive, fast, and secure—tailored to your needs."
+      },
+      {
+        "title": "Online Stores (E-commerce)",
+        "desc": "Online stores optimized to convert, with secure payment gateways and an easy-to-use management panel."
+      },
+      {
+        "title": "Portfolios & Landing Pages",
+        "desc": "Impactful landing pages and portfolios, focused on UX and conversion to attract clients or showcase services."
+      },
+      {
+        "title": "Custom Solutions",
+        "desc": "Consulting and custom development: automations, integrations, and specific features for your business."
+      }
+    ],
+    "cta": "Request a quote"
+  },
+  "projects": {
+    "title": "Projects",
+    "badge": "Our work",
+    "list": [
+      {
+        "title": "ProClub",
+        "desc": "We designed and developed ProClub's website in WordPress to provide an attractive, fast, and easy-to-manage platform for the gym.",
+        "caption": "Website Design",
+        "link": "https://proclub-app.com.ar/",
+        "img": "Pro-Club.webp",
+        "button": "VIEW PROJECT"
+      },
+      {
+        "title": "SaaS Management Demo",
+        "desc": "Ideal system for small businesses: client management, stock and daily sales with a performance dashboard. Custom design connected to Google Sheets.",
+        "caption": "SaaS / Google Sheets",
+        "link": "https://demo-saas.geralddev.com.ar/",
+        "img": "Demo-Saas.webp",
+        "button": "VIEW DEMO"
+      },
+      {
+        "title": "Agua Vital",
+        "desc": "Management platform for water distribution. Subscription and delivery control with an interface optimized for daily use.",
+        "caption": "Web Application",
+        "link": "https://agua.geralddev.com.ar/",
+        "img": "Agua-vital.webp",
+        "button": "VIEW PROJECT"
+      },
+      {
+        "title": "Transporte Don Roque",
+        "desc": "Professional landing page for earthmoving and aggregate services. Focus on client acquisition and institutional presence.",
+        "caption": "Landing Page",
+        "link": "https://transportedonroque.ar/",
+        "img": "Transporte.webp",
+        "button": "VIEW PROJECT"
+      }
+    ]
+  },
+  "testimonial": {
+    "title": "Testimonials",
+    "subtitle": "What they say about us",
+    "badge": "Client reviews",
+    "list": [
+      {
+        "text": "Working with Lorenzo has been exceptional. The app streamlined my training system and now everything runs organically. The gym is more organized and students are very happy.",
+        "author": "Franco Meloni",
+        "role": "CEO of ProClub",
+        "img": "franco-meloni.webp"
+      },
+      {
+        "text": "The landing page for our transport business exceeded expectations. They captured the professionalism we need for large-scale earthmoving projects. Outstanding work.",
+        "author": "Facundo García",
+        "role": "Don Roque Transport",
+        "img": "Facu.webp"
+      },
+      {
+        "text": "The management system for our water distribution is excellent. Tracking clients and orders is now much faster, ensuring purity and punctuality in every delivery.",
+        "author": "Gustavo Bustos",
+        "role": "Agua Vital",
+        "img": "Gusti.webp"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Write to us and let's plan your project",
+    "badge": "Get in touch",
+    "channels": "Direct channels",
+    "asideNote": "I usually reply within 24hs. Don't hesitate to reach out!",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "interest": "Interest (optional)",
+      "interestPlaceholder": "Select an option",
+      "message": "Message",
+      "messagePlaceholder": "Tell us briefly about your idea…",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "ok": "Message sent! We'll get back to you soon.",
+      "err": "Error sending. Please try again or contact us via WhatsApp."
+    },
+    "interestOptions": {
+      "web": "Web Development",
+      "ecommerce": "Online Store",
+      "landing": "Landing / Portfolio",
+      "custom": "Custom Solution"
+    }
+  }
+}

@@ -1,0 +1,155 @@
+/* index.css — Global/base */
+
+/* ================= TOKENS ================= */
+:root{
+  /* Fondo */
+  --bg-dark-1:#000318;
+  --bg-dark-2: #000318;
+
+  /* Marca / colores */
+  --brand-teal-600: rgba(0,200,180,0.60);
+  --brand-teal-300: rgba(70,150,180,0.35);
+  --brand-pink-600: rgba(227,180,212,0.60);
+  --brand-pink-300: rgba(227,180,212,0.35);
+  --brand-celeste:  rgb(181,222,247);
+  --brand-rosa:     rgb(227,180,212);
+
+  /* Vidrio / superficies */
+  --glass-surface: linear-gradient(to bottom, rgba(8,10,21,0.65), rgba(8,10,21,0.45));
+  --glass-border:  1px solid rgba(181, 222, 247, 0.18);
+  --glass-shadow:  0 10px 30px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.04) inset;
+
+  /* Radios */
+  --radius-xl: 20px;
+  --radius-lg: 18px;
+}
+/* Evitar scroll lateral/hairlines en TODOS lados */
+html, body { overflow-x: clip; }
+@supports not (overflow-x: clip) {
+  html, body { overflow-x: hidden; }
+}
+
+/* Ajuste blobs mobile: que no excedan el viewport */
+@media (max-width: 768px) {
+  body::before,
+  body::after {
+    width: 100vw;   /* antes 110vw */
+    filter: blur(48px);
+    opacity: 0.27;
+  }
+}
+
+/* Vidrio global sin “hairline” inset (sacamos la línea fantasma) */
+:root{
+  /* ...dejá tus vars... */
+  --glass-shadow: 0 10px 30px rgba(0,0,0,.25); /* antes tenía un 1px inset */
+  --glass-border: 1px solid rgba(181, 222, 247, 0.16); /* un toque más suave */
+}
+
+/* Reset mínimo */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+/* Tipografía + fondo global */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(135deg, var(--bg-dark-1), var(--bg-dark-2));
+  color: #fff;
+
+  position: relative;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+/* ================= BLOBS GLOBALES ================= */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  width: clamp(28rem, 45vw, 72rem);
+  aspect-ratio: 1155 / 678;
+  background: linear-gradient(to top right, var(--brand-teal-600), var(--brand-teal-300));
+  filter: blur(60px);
+  opacity: 0.33;
+  transform: rotate(30deg);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+body::before { top: -40vh; left: calc(50% - 22rem); animation: blobFloat1 12s ease-in-out infinite; }
+body::after  { bottom: -32vh; left: calc(50% + 6rem); animation: blobFloat2 14s ease-in-out infinite; }
+
+@keyframes blobFloat1 { 0%,100%{transform:rotate(30deg) translate(0,0)} 50%{transform:rotate(30deg) translate(0,14px)} }
+@keyframes blobFloat2 { 0%,100%{transform:rotate(30deg) translate(0,0)} 50%{transform:rotate(30deg) translate(0,-14px)} }
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+  body::before, body::after { width:110vw; filter:blur(48px); opacity:0.27; }
+  body::before { top:-32vh; left:40%; }
+  body::after  { bottom:-28vh; left:55%; }
+}
+@media (max-width: 420px) {
+  body::before, body::after { width:130vw; filter:blur(42px); opacity:0.24; }
+  body::before { top:-28vh; left:38%; }
+  body::after  { bottom:-24vh; left:58%; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none !important; }
+}
+
+/* ================ HELPERS GLOBALES ================= */
+/* (Opcional) ancho uniforme para secciones si lo querés usar en el JSX */
+.section{
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  isolation: isolate;
+}
+
+/* Botones tipo “pill” compartidos (usan tus clases actuales) */
+.navbar-button,
+.services-button,
+.contact-submit{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5rem; padding:.9rem 1.5rem; border-radius: var(--radius-xl);
+  font-weight:700; text-decoration:none; cursor:pointer;
+  background: rgba(181,222,247,0.15);
+  border: 1px solid rgba(181,222,247,0.25);
+  color:#fff;
+  box-shadow: 0 0 12px rgba(181,222,247,0.35);
+  transition: background-color .25s ease, color .25s ease, transform .08s ease, box-shadow .25s ease;
+}
+.navbar-button:hover,
+.services-button:hover,
+.contact-submit:hover{
+  background: rgba(181,222,247,0.9);
+  color: rgb(6,9,31);
+  box-shadow: 0 0 24px rgba(181,222,247,.65);
+}
+.navbar-button:active,
+.services-button:active,
+.contact-submit:active{ transform: translateY(1px); }
+
+/* Botón icono compacto (se usa en Contact) */
+.icon-btn{
+  width:44px; height:44px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border-radius:12px; padding:0;
+  background: rgba(181, 222, 247, 0.10);
+  border: 1px solid rgba(181, 222, 247, 0.22);
+  box-shadow: 0 0 12px rgba(181, 222, 247, 0.25);
+  color: inherit; text-decoration:none;
+  transition: background-color .2s ease, transform .08s ease, box-shadow .2s ease;
+}
+.icon-btn:hover{
+  background: rgba(181, 222, 247, 0.9);
+  color: rgb(6, 9, 31);
+  box-shadow: 0 0 20px rgba(181, 222, 247, 0.6);
+}
+.icon-btn:active{ transform: translateY(1px); }
+.icon-btn img{ width:20px; height:20px; display:block; }

@@ -1,0 +1,12 @@
+/* App.css */
+
+/* No tocar body acá. La fuente y el fondo ya los maneja index.css */
+
+.App {
+  background: transparent;
+
+  min-height: 100vh;
+  position: relative;
+}
+
+/* (La media de .navbar vive en navbar.css) */
