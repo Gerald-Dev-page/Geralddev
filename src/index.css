@@ -1,68 +1,53 @@
 /* index.css — Global/base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* ================= TOKENS ================= */
-:root{
-  /* Fondo */
-  --bg-dark-1:#000318;
-  --bg-dark-2: #000318;
-
-  /* Marca / colores */
-  --brand-teal-600: rgba(0,200,180,0.60);
-  --brand-teal-300: rgba(70,150,180,0.35);
-  --brand-pink-600: rgba(227,180,212,0.60);
-  --brand-pink-300: rgba(227,180,212,0.35);
-  --brand-celeste:  rgb(181,222,247);
-  --brand-rosa:     rgb(227,180,212);
-
-  /* Vidrio / superficies */
-  --glass-surface: linear-gradient(to bottom, rgba(8,10,21,0.65), rgba(8,10,21,0.45));
-  --glass-border:  1px solid rgba(181, 222, 247, 0.18);
-  --glass-shadow:  0 10px 30px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.04) inset;
-
-  /* Radios */
-  --radius-xl: 20px;
-  --radius-lg: 18px;
+/* ============================================================
+   TOKENS CSS  (referenciados desde JS/CSS que no usan Tailwind)
+   ============================================================ */
+:root {
+  --bg-dark-1:        #000318;
+  --bg-dark-2:        #000318;
+  --brand-celeste:    rgb(181, 222, 247);
+  --brand-rosa:       rgb(227, 180, 212);
+  --glass-border:     1px solid rgba(181, 222, 247, 0.16);
+  --glass-shadow:     0 10px 30px rgba(0, 0, 0, 0.25);
+  --radius-xl:        20px;
+  --radius-lg:        18px;
 }
-/* Evitar scroll lateral/hairlines en TODOS lados */
-html, body { overflow-x: clip; }
+
+/* ============================================================
+   RESET MÍNIMO
+   ============================================================ */
+*  { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  overflow-x: clip;           /* evita scroll lateral */
+}
 @supports not (overflow-x: clip) {
   html, body { overflow-x: hidden; }
 }
 
-/* Ajuste blobs mobile: que no excedan el viewport */
-@media (max-width: 768px) {
-  body::before,
-  body::after {
-    width: 100vw;   /* antes 110vw */
-    filter: blur(48px);
-    opacity: 0.27;
-  }
-}
-
-/* Vidrio global sin “hairline” inset (sacamos la línea fantasma) */
-:root{
-  /* ...dejá tus vars... */
-  --glass-shadow: 0 10px 30px rgba(0,0,0,.25); /* antes tenía un 1px inset */
-  --glass-border: 1px solid rgba(181, 222, 247, 0.16); /* un toque más suave */
-}
-
-/* Reset mínimo */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-
-/* Tipografía + fondo global */
+/* ============================================================
+   BODY — fuente + fondo global
+   ============================================================ */
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: linear-gradient(135deg, var(--bg-dark-1), var(--bg-dark-2));
   color: #fff;
-
   position: relative;
-  overflow-x: hidden;
   z-index: 0;
 }
 
-/* ================= BLOBS GLOBALES ================= */
+/* no-scroll cuando el menú mobile está abierto */
+body.no-scroll { overflow: hidden; }
+
+/* ============================================================
+   BLOBS GLOBALES — pseudo-elementos en body
+   (no hay forma de hacerlos solo con Tailwind utilities)
+   ============================================================ */
 body::before,
 body::after {
   content: "";
@@ -70,7 +55,7 @@ body::after {
   inset: auto;
   width: clamp(28rem, 45vw, 72rem);
   aspect-ratio: 1155 / 678;
-  background: linear-gradient(to top right, var(--brand-teal-600), var(--brand-teal-300));
+  background: linear-gradient(to top right, rgba(0, 200, 180, 0.60), rgba(70, 150, 180, 0.35));
   filter: blur(60px);
   opacity: 0.33;
   transform: rotate(30deg);
@@ -78,78 +63,145 @@ body::after {
   pointer-events: none;
   will-change: transform, opacity;
 }
-body::before { top: -40vh; left: calc(50% - 22rem); animation: blobFloat1 12s ease-in-out infinite; }
-body::after  { bottom: -32vh; left: calc(50% + 6rem); animation: blobFloat2 14s ease-in-out infinite; }
+body::before {
+  top: -40vh;
+  left: calc(50% - 22rem);
+  animation: blobFloat1 12s ease-in-out infinite;
+}
+body::after {
+  bottom: -32vh;
+  left: calc(50% + 6rem);
+  animation: blobFloat2 14s ease-in-out infinite;
+}
 
-@keyframes blobFloat1 { 0%,100%{transform:rotate(30deg) translate(0,0)} 50%{transform:rotate(30deg) translate(0,14px)} }
-@keyframes blobFloat2 { 0%,100%{transform:rotate(30deg) translate(0,0)} 50%{transform:rotate(30deg) translate(0,-14px)} }
+@keyframes blobFloat1 {
+  0%, 100% { transform: rotate(30deg) translate(0, 0); }
+  50%       { transform: rotate(30deg) translate(0, 14px); }
+}
+@keyframes blobFloat2 {
+  0%, 100% { transform: rotate(30deg) translate(0, 0); }
+  50%       { transform: rotate(30deg) translate(0, -14px); }
+}
 
 /* Mobile tuning */
 @media (max-width: 768px) {
-  body::before, body::after { width:110vw; filter:blur(48px); opacity:0.27; }
-  body::before { top:-32vh; left:40%; }
-  body::after  { bottom:-28vh; left:55%; }
+  body::before, body::after {
+    width: 100vw;
+    filter: blur(48px);
+    opacity: 0.27;
+  }
+  body::before { top: -32vh; left: 40%; }
+  body::after  { bottom: -28vh; left: 55%; }
 }
 @media (max-width: 420px) {
-  body::before, body::after { width:130vw; filter:blur(42px); opacity:0.24; }
-  body::before { top:-28vh; left:38%; }
-  body::after  { bottom:-24vh; left:58%; }
+  body::before, body::after {
+    width: 130vw;
+    filter: blur(42px);
+    opacity: 0.24;
+  }
+  body::before { top: -28vh; left: 38%; }
+  body::after  { bottom: -24vh; left: 58%; }
 }
 
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   body::before, body::after { animation: none !important; }
 }
 
-/* ================ HELPERS GLOBALES ================= */
-/* (Opcional) ancho uniforme para secciones si lo querés usar en el JSX */
-.section{
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  isolation: isolate;
+/* ============================================================
+   WHATSAPP FAB — reglas que Tailwind no puede expresar
+   ============================================================ */
+
+/* Ocultar el FAB cuando el menú mobile está abierto */
+body.no-scroll .whatsapp-fab {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.85);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Botones tipo “pill” compartidos (usan tus clases actuales) */
-.navbar-button,
-.services-button,
-.contact-submit{
-  display:inline-flex; align-items:center; justify-content:center;
-  gap:.5rem; padding:.9rem 1.5rem; border-radius: var(--radius-xl);
-  font-weight:700; text-decoration:none; cursor:pointer;
-  background: rgba(181,222,247,0.15);
-  border: 1px solid rgba(181,222,247,0.25);
-  color:#fff;
-  box-shadow: 0 0 12px rgba(181,222,247,0.35);
-  transition: background-color .25s ease, color .25s ease, transform .08s ease, box-shadow .25s ease;
-}
-.navbar-button:hover,
-.services-button:hover,
-.contact-submit:hover{
-  background: rgba(181,222,247,0.9);
-  color: rgb(6,9,31);
-  box-shadow: 0 0 24px rgba(181,222,247,.65);
-}
-.navbar-button:active,
-.services-button:active,
-.contact-submit:active{ transform: translateY(1px); }
+/* Scale de la imagen al hover del enlace padre */
+.whatsapp-fab:hover img { transform: scale(1.1); }
 
-/* Botón icono compacto (se usa en Contact) */
-.icon-btn{
-  width:44px; height:44px;
-  display:inline-flex; align-items:center; justify-content:center;
-  border-radius:12px; padding:0;
-  background: rgba(181, 222, 247, 0.10);
-  border: 1px solid rgba(181, 222, 247, 0.22);
-  box-shadow: 0 0 12px rgba(181, 222, 247, 0.25);
-  color: inherit; text-decoration:none;
-  transition: background-color .2s ease, transform .08s ease, box-shadow .2s ease;
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-fab,
+  .whatsapp-fab img { transition: none !important; }
 }
-.icon-btn:hover{
-  background: rgba(181, 222, 247, 0.9);
-  color: rgb(6, 9, 31);
-  box-shadow: 0 0 20px rgba(181, 222, 247, 0.6);
+
+/* ============================================================
+   LAYER COMPONENTS — clases compartidas reutilizables
+   (evitamos duplicar @apply en cada componente)
+   ============================================================ */
+/* ============================================================
+   KEYFRAMES HERO
+   (aurora + scroll hint — referenciados con animate-[nombre] en JSX)
+   ============================================================ */
+/* Compartido: Services auroras */
+@keyframes auroraSway {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(12px, -10px) scale(1.06); }
 }
-.icon-btn:active{ transform: translateY(1px); }
-.icon-btn img{ width:20px; height:20px; display:block; }
+/* Compartido: Hero auroras + About auroras */
+@keyframes auroraFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+  50%       { transform: translate(-50%, -50%) translateY(-16px); }
+}
+@keyframes auroraMoveScale1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(15px, -12px) scale(1.25); }
+}
+@keyframes auroraMoveScale2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-15px, 10px) scale(1.15); }
+}
+@keyframes scrollDrop {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+}
+
+/* Reducción de movimiento — Hero */
+@media (prefers-reduced-motion: reduce) {
+  [style*="auroraMoveScale"],
+  [class*="animate-[scrollDrop"],
+  [class*="animate-[pulse"] {
+    animation: none !important;
+  }
+}
+
+@layer components {
+
+  /* Botón "pill" principal */
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-[0.9rem] rounded-[20px]
+           font-bold text-white no-underline cursor-pointer
+           bg-[rgba(181,222,247,0.15)] border border-[rgba(181,222,247,0.25)]
+           shadow-glow-sm
+           transition-all duration-[250ms] ease-in-out
+           select-none;
+  }
+  .btn-pill:hover {
+    @apply bg-[rgba(181,222,247,0.9)] text-[rgb(6,9,31)] shadow-glow-md;
+  }
+  .btn-pill:active { @apply translate-y-px; }
+
+  /* Botón icono compacto (Contact, redes, etc.) */
+  .btn-icon {
+    @apply w-11 h-11 inline-flex items-center justify-center
+           rounded-xl p-0
+           bg-[rgba(181,222,247,0.10)] border border-[rgba(181,222,247,0.22)]
+           shadow-glow-sm
+           text-inherit no-underline
+           transition-all duration-200 ease-in-out;
+  }
+  .btn-icon:hover {
+    @apply bg-[rgba(181,222,247,0.9)] text-[rgb(6,9,31)] shadow-glow-md;
+  }
+  .btn-icon:active { @apply translate-y-px; }
+  .btn-icon img    { @apply w-5 h-5 block; }
+
+  /* Contenedor de sección uniforme */
+  .section-wrap {
+    @apply relative max-w-[1200px] mx-auto px-5 isolate;
+  }
+}

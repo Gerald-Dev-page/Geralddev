@@ -44,9 +44,22 @@
       {
         "title": "Soluciones Personalizadas",
         "desc": "Consultoría y desarrollo a medida: automatizaciones, integraciones y funcionalidades específicas para tu negocio."
+      },
+     {
+        "title": "Community Manager",
+        "desc": "Marketing, Creación de contenido, gestíon integral y estrategica de resdes sociales. Ayudamos a tu marca a crecer, a comunicar tu negocio y generar mayor alcance de clientes."
       }
     ],
     "cta": "Solicitar presupuesto"
+  },
+  "dataProduct": {
+    "badge": "Producto Propio",
+    "slogan": "Control total. Crecimiento real.",
+    "p1": "Sistema de Gestión Integral. Una solución All-in-One (todo en uno) que centraliza la operación, la administración y las finanzas de un negocio en un solo lugar.",
+    "p2": ".DATA transforma el caos de planillas y papeles en un flujo de trabajo digital automatizado.",
+    "p3": "Es un ecosistema digital de gestión diseñado para eliminar la carga administrativa de los negocios. Centraliza turnos, ventas, stock y finanzas, permitiendo que el dueño tenga el control total de su operación y pueda tomar decisiones basadas en datos reales, no en intuiciones.",
+    "p4": "Fácil de usar y acceso desde cualquier dispositivo a tus datos y reportes.",
+    "button": "VER DEMO"
   },
   "projects": {
     "title": "Trabajos",
@@ -59,14 +72,6 @@
         "link": "https://proclub-app.com.ar/",
         "img": "Pro-Club.webp",
         "button": "VER TRABAJO"
-      },
-      {
-        "title": "Demo Gestión SaaS",
-        "desc": "Sistema ideal para pequeños negocios: gestión de clientes, stock y ventas diarias con panel de rendimiento. Diseño personalizado conectado a Google Sheets.",
-        "caption": "SaaS / Google Sheets",
-        "link": "https://demo-saas.geralddev.com.ar/",
-        "img": "Demo-Saas.webp",
-        "button": "VER DEMO"
       },
       {
         "title": "Agua Vital",
@@ -133,7 +138,8 @@
       "web": "Desarrollo Web",
       "ecommerce": "Tienda Online",
       "landing": "Landing / Portfolio",
-      "custom": "Solución Personalizada"
+      "custom": "Solución Personalizada", 
+      "cm": "Community Manager"
     }
   }
 }

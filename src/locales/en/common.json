@@ -44,9 +44,22 @@
       {
         "title": "Custom Solutions",
         "desc": "Consulting and custom development: automations, integrations, and specific features for your business."
+      },
+      {
+        "title": "Community Manager",
+        "desc": "Marketing, content creation, and comprehensive and strategic social media management. We help your brand grow, communicate your business, and generate greater customer reach."
       }
     ],
     "cta": "Request a quote"
+  },
+  "dataProduct": {
+    "badge": "In-House Product",
+    "slogan": "Total control. Real growth.",
+    "p1": "Comprehensive Management System. An All-in-One solution that centralizes a business's operations, administration, and finances in one place.",
+    "p2": ".DATA transforms the chaos of spreadsheets and paperwork into an automated digital workflow.",
+    "p3": "It is a digital management ecosystem designed to eliminate the administrative burden of businesses. It centralizes appointments, sales, inventory, and finances, allowing the owner to have total control over their operation and make decisions based on real data, not intuition.",
+    "p4": "Easy to use, with access to your data and reports from any device.",
+    "button": "VIEW DEMO"
   },
   "projects": {
     "title": "Projects",
@@ -59,14 +72,6 @@
         "link": "https://proclub-app.com.ar/",
         "img": "Pro-Club.webp",
         "button": "VIEW PROJECT"
-      },
-      {
-        "title": "SaaS Management Demo",
-        "desc": "Ideal system for small businesses: client management, stock and daily sales with a performance dashboard. Custom design connected to Google Sheets.",
-        "caption": "SaaS / Google Sheets",
-        "link": "https://demo-saas.geralddev.com.ar/",
-        "img": "Demo-Saas.webp",
-        "button": "VIEW DEMO"
       },
       {
         "title": "Agua Vital",
@@ -133,7 +138,8 @@
       "web": "Web Development",
       "ecommerce": "Online Store",
       "landing": "Landing / Portfolio",
-      "custom": "Custom Solution"
+      "custom": "Custom Solution",
+      "cm": "Community Manager"
     }
   }
 }
