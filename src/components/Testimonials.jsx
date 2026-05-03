@@ -89,10 +89,14 @@ function TestimonialCard({ item }) {
       <div className="relative order-1 md:order-2 flex-shrink-0 flex items-center justify-center">
         <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full p-[2px] bg-gradient-to-br from-[rgb(181,222,247)] to-[rgb(227,180,212)] opacity-80 group-hover:opacity-100 transition-all duration-500 shadow-[0_0_20px_rgba(181,222,247,0.15)] group-hover:shadow-[0_0_40px_rgba(181,222,247,0.35)] group-hover:scale-105 group-hover:-rotate-3">
           <div className="w-full h-full rounded-full bg-[#000318] p-[3px] overflow-hidden">
+            {/* Se agregaron width, height y decoding async para optimización de Lighthouse */}
             <img
               src={`${import.meta.env.BASE_URL}img/${item.img}`}
               alt={item.author}
               loading="lazy"
+              decoding="async"
+              width="160"
+              height="160"
               className="w-full h-full object-cover rounded-full filter grayscale-[15%] group-hover:grayscale-0 transition-all duration-500"
             />
           </div>

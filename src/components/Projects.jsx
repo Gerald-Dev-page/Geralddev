@@ -73,6 +73,9 @@ function ProjectCard({ project, index }) {
           src={`${import.meta.env.BASE_URL}img/${project.img}`}
           alt={`Captura del proyecto ${project.title}`}
           loading="lazy"
+          decoding="async"
+          width="800"
+          height="600"
           className="w-full h-auto object-cover rounded-[1.25rem] md:rounded-[1.75rem] transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110"
         />
       </div>

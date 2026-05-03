@@ -6,47 +6,49 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex flex-col items-center justify-center text-center min-h-[90vh] md:min-h-screen max-w-[1000px] mx-auto px-6 -mt-14 z-10 text-white"
+      className="relative flex flex-col items-center justify-center text-center min-h-[100vh] max-w-[1000px] mx-auto px-6 z-10 text-white pt-16 md:pt-0"
     >
       {/* ── Brillo de fondo central para mejorar contraste del texto ── */}
       <div 
         aria-hidden="true" 
-        className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none -z-10 blur-2xl"
+        className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[70%] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.04)_0%,transparent_70%)] pointer-events-none -z-10 blur-2xl"
       />
 
       <Aurora
-        className="w-[280px] h-[280px] md:w-[450px] md:h-[450px] top-[15%] -right-[5%]"
+        className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] top-[10%] -right-[10%] md:top-[15%] md:-right-[5%]"
         color="radial-gradient(circle at center, rgba(0,200,180,0.55) 0%, rgba(70,150,180,0.25) 50%, transparent 80%)"
         animation="aurora1"
       />
       <Aurora
-        className="w-[240px] h-[240px] md:w-[400px] md:h-[400px] bottom-[10%] left-[2%]"
+        className="w-[260px] h-[260px] md:w-[400px] md:h-[400px] bottom-[5%] -left-[10%] md:bottom-[10%] md:left-[2%]"
         color="radial-gradient(circle at center, rgba(227,180,212,0.50) 0%, rgba(227,180,212,0.20) 50%, transparent 80%)"
         animation="aurora2"
       />
 
-      <h1 className="m-0 mb-6 font-black text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.05] tracking-tighter drop-shadow-sm [&_.celeste]:text-[rgb(181,222,247)] [&_.celeste]:drop-shadow-[0_0_24px_rgba(181,222,247,0.3)] [&_.rosa]:text-[rgb(227,180,212)] [&_.rosa]:drop-shadow-[0_0_24px_rgba(227,180,212,0.3)]">
-        <Trans
-          i18nKey="hero.title"
-          components={[
-            <span className="celeste relative inline-block" />,
-            <br />,
-            <span className="rosa relative inline-block" />,
-          ]}
-        />
-      </h1>
+      <div className="flex flex-col items-center justify-center w-full mt-auto mb-auto">
+        <h1 className="m-0 mb-6 md:mb-8 font-black text-[3.2rem] leading-[1.1] md:text-6xl lg:text-[4.8rem] md:leading-[1.05] tracking-tighter drop-shadow-sm [&_.celeste]:text-[rgb(181,222,247)] [&_.celeste]:drop-shadow-[0_0_24px_rgba(181,222,247,0.3)] [&_.rosa]:text-[rgb(227,180,212)] [&_.rosa]:drop-shadow-[0_0_24px_rgba(227,180,212,0.3)]">
+          <Trans
+            i18nKey="hero.title"
+            components={[
+              <span className="celeste relative inline-block" />,
+              <br className="hidden sm:block" />, 
+              <span className="rosa relative inline-block" />,
+            ]}
+          />
+        </h1>
 
-      <p className="m-0 mb-10 max-w-2xl text-lg md:text-xl font-medium leading-relaxed text-[rgba(210,225,242,0.8)] drop-shadow-sm">
-        <Trans i18nKey="hero.subtitle" />
-      </p>
+        <p className="m-0 mb-12 md:mb-14 max-w-2xl text-[1.1rem] md:text-xl font-medium leading-relaxed text-[rgba(210,225,242,0.85)] drop-shadow-sm px-2">
+          <Trans i18nKey="hero.subtitle" />
+        </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center w-full sm:w-auto mb-16 md:mb-12">
-        <CtaLink href="#contacto" variant="primary">
-          {t("hero.cta.contact")}
-        </CtaLink>
-        <CtaLink href="#servicios" variant="secondary">
-          {t("hero.cta.services")}
-        </CtaLink>
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center w-full sm:w-auto">
+          <CtaLink href="#contacto" variant="primary">
+            {t("hero.cta.contact")}
+          </CtaLink>
+          <CtaLink href="#servicios" variant="secondary">
+            {t("hero.cta.services")}
+          </CtaLink>
+        </div>
       </div>
 
       <div
@@ -82,8 +84,8 @@ function Aurora({ className, color, animation }) {
 function CtaLink({ href, variant, children }) {
   const base = [
     "inline-flex items-center justify-center w-full sm:w-auto",
-    "px-8 py-3.5 md:px-10 md:py-4",
-    "rounded-[1.25rem] font-bold text-[0.95rem] md:text-base",
+    "px-8 py-4 md:px-10 md:py-4",
+    "rounded-2xl md:rounded-[1.25rem] font-bold text-[1rem] md:text-base",
     "no-underline cursor-pointer backdrop-blur-md",
     "transition-all duration-300 ease-out",
     "hover:-translate-y-1 active:translate-y-0 active:scale-[0.98]",

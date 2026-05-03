@@ -41,8 +41,14 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setMenuOpen(false);
+    // Removemos la clase síncronamente para destrabar el scroll en mobile
+    document.body.classList.remove('no-scroll');
+    
+    // Pequeño delay para permitir que el DOM repinte el overflow antes de hacer scroll
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
   };
 
   return (
