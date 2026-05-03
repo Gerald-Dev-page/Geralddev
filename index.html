@@ -1,29 +1,81 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon-Dino.ico" />
-<link rel="apple-touch-icon" href="/logo192.png" />
-<link rel="manifest" href="/manifest.json" />
-
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#000318" /> <!-- Ajustado al color oscuro de tu marca -->
+
+    <!-- 1. SEO Básico y Palabras Clave -->
+    <title>Gerald.Dev | Agencia de Desarrollo Web y Soluciones Digitales</title>
     <meta
       name="description"
-      content="Gerald.Dev"
+      content="Agencia de desarrollo web y software a medida. Impulsamos tu negocio con e-commerce, landing pages y sistemas personalizados. ¡Hablemos!"
     />
+    <meta
+      name="keywords"
+      content="agencia de desarrollo, desarrollo web, programacion a medida, e-commerce, landing pages, argentina, san luis, diseño web, Gerald.Dev"
+    />
+    <meta name="author" content="Gerald.Dev" />
+    <link rel="canonical" href="https://geralddev.com.ar/" />
 
+    <!-- 2. Optimización de Rendimiento (Lighthouse) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Carga diferida de la fuente para que no bloquee la pantalla blanca inicial -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap"
+      />
+    </noscript>
 
+    <!-- 3. Open Graph (Tarjetas para WhatsApp, LinkedIn, Instagram) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gerald.Dev | Agencia de Desarrollo Web" />
+    <meta property="og:description" content="Construyendo experiencias que marcan la diferencia. Desarrollo Web y Apps Profesionales a Medida." />
+    <meta property="og:url" content="https://geralddev.com.ar/" />
+    <!-- Idealmente subí una imagen de 1200x630px que diga Gerald.Dev para que se vea como portada -->
+    <meta property="og:image" content="https://geralddev.com.ar/img/Logo-negro.webp" /> 
 
-
-    <title>Gerald.Dev</title>
-    <script type="module" crossorigin src="/assets/index-Nx_wYh9d.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BBZ4wbOH.css">
+    <!-- 4. JSON-LD Structured Data (Para salir en Google como Agencia) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Gerald.Dev",
+      "image": "https://geralddev.com.ar/img/Logo-negro.webp",
+      "url": "https://geralddev.com.ar/",
+      "telephone": "+5492664952528",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Luis",
+        "addressCountry": "AR"
+      },
+      "priceRange": "$$",
+      "description": "Agencia de desarrollo web y software a medida. Especialistas en e-commerce, landing pages y sistemas de gestión para potenciar marcas.",
+      "sameAs": [
+        "https://www.instagram.com/gerald.devv/"
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-CwmActFb.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BAUw-ARS.css">
   </head>
   <body>
     <noscript>Necesitás habilitar JavaScript para usar esta web.</noscript>
